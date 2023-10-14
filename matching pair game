@@ -1,0 +1,67 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class MatchingPairGame {
+    public static void main(String[] args) {
+        // Create a list of card pairs
+        ArrayList<String> cardPairs = new ArrayList<>();
+        cardPairs.add("A");
+        cardPairs.add("B");
+        // Add more pairs as needed
+        
+        // Double the cardPairs to create pairs
+        cardPairs.addAll(cardPairs);
+        
+        // Shuffle the cards
+        Collections.shuffle(cardPairs);
+        
+        // Create a grid of cards
+        String[] grid = new String[cardPairs.size()];
+        
+        // Game loop
+        boolean gameOver = false;
+        while (!gameOver) {
+            // Display the grid
+            displayGrid(grid);
+            
+            // Get user input for two card selections
+            int card1Index = getCardSelection();
+            int card2Index = getCardSelection();
+            
+            // Check if the selected cards match
+            if (cardPairs.get(card1Index).equals(cardPairs.get(card2Index))) {
+                // Update the grid with the matched cards
+                grid[card1Index] = cardPairs.get(card1Index);
+                grid[card2Index] = cardPairs.get(card2Index);
+                
+                // Check if the game is over (all cards matched)
+                gameOver = isGameOver(grid);
+            } else {
+                // Cards do not match, flip them back
+                grid[card1Index] = "X";  // "X" represents a face-down card
+                grid[card2Index] = "X";
+            }
+        }
+        
+        // Game over message
+        System.out.println("Congratulations! You've matched all the pairs!");
+    }
+    
+    // Method to display the grid
+    private static void displayGrid(String[] grid) {
+        // Implement how you want to display the grid here
+    }
+    
+    // Method to get user input for card selection
+    private static int getCardSelection() {
+        // Implement how you want to get user input here
+        return 0;  // Placeholder
+    }
+    
+    // Method to check if the game is over
+    private static boolean isGameOver(String[] grid) {
+        // Implement game-over logic here
+        return true;  // Placeholder
+    }
+}
